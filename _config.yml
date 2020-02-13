@@ -29,8 +29,27 @@ github_username:  gdubya
 
 # Build settings
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
+skin: "/assets/css/skins/light.css"
+
+locale: en-GB
+read_time: true
+google_analytics: UA-113692-1
+#disqus:
+#  shortname: # Disqus shortname, e.g. "my_disqus_shortname"
+twitter:
+  username: gareth
+
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginated
+  - jekyll-seo-tag
+
+# Footer Links
+footer_links:
+  - title: Feed
+    url: atom.xml
+    icon: fas fa-rss-square
 
 # Exclude from processing.
 # The following items will not be processed, by default.
