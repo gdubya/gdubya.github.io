@@ -26,11 +26,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: gareth
 github_username:  gdubya
+logo: images/gareth.jpg
 
 # Build settings
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
 skin: "/assets/css/skins/light.css"
-
+feed:
+  path: atom.xml
 locale: en-GB
 read_time: true
 google_analytics: UA-113692-1
@@ -39,11 +41,29 @@ google_analytics: UA-113692-1
 twitter:
   username: gareth
 
+# Search
+search_full_content: false # can have performance implications for large sites
+
+# Front Matter Defaults
+defaults:
+  # Posts defaults
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      share: true
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginated
   - jekyll-seo-tag
+
+collections:
+  notes:
+    output: true
+    permalink: /:collection/:path/
 
 # Footer Links
 footer_links:
