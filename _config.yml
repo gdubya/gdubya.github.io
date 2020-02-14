@@ -23,7 +23,7 @@ email: gareth@garethwestern.com
 description: >- # this means to ignore newlines until "baseurl:"
         A place for @gareth to write about whatever takes his fancy.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://garethwestern.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: gareth
 github_username:  gdubya
 logo: images/gareth.jpg
