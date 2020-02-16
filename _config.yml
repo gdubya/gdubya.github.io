@@ -27,10 +27,6 @@ url: "https://garethwestern.com" # the base hostname & protocol for your site, e
 twitter_username: gareth
 github_username:  gdubya
 logo: images/gareth.jpg
-
-# Build settings
-remote_theme: "mmistakes/so-simple-theme@3.2.0"
-skin: "/assets/css/skins/light.css"
 feed:
   path: atom.xml
 locale: en-GB
@@ -40,19 +36,28 @@ disqus:
   shortname: gdubya
 twitter:
   username: gareth
+  
+# Build settings
+remote_theme: "mmistakes/so-simple-theme@3.2.0"
+skin: "/assets/css/skins/light.css"
+google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
 
 # Search
 search_full_content: false # can have performance implications for large sites
 
 # Front Matter Defaults
 defaults:
-  # Posts defaults
   - scope:
       path: "_posts"
       type: posts
     values:
       layout: post
       share: true
+      comments: true
 
 plugins:
   - jekyll-feed
@@ -61,6 +66,9 @@ plugins:
   - jekyll-seo-tag
 
 collections:
+  posts:
+    output: true
+    permalink: /posts/:year/:month/:day/:title/
   notes:
     output: true
     permalink: /:collection/:path/
