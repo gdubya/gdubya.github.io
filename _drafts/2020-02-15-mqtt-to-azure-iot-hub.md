@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Secure MQTT communication with Azure IoT Hub"
-date:   2020-02-15 20:32:00 +0100
+date:   2020-02-17 21:32:00 +0100
 categories: azure iot mqtt
 ---
 
@@ -87,7 +87,7 @@ Starting event monitor, use ctrl-c to stop...
 {
     "event": {
         "origin": "gaz-device-1",
-        "payload": "A message sent at: Sun 16 Feb 18:16:42 CET 2020"
+        "payload": "A message sent at: Sun 17 Feb 20:16:42 CET 2020"
     }
 }
 {% endhighlight %}
@@ -207,9 +207,13 @@ az group list | jq '.[].name'
 {% endhighlight %}
 
 # Conclusion / What's Next?
-Phew. That felt like quite a lot of work.
+Phew. That felt like quite a lot of work. So, to recap what we've achieved here:
+1. Created a new IoT Hub in Azure
+2. Registered a couple of devices, one for SAS and one for X.509 CA authentication
+3. Generated a SAS token and used it to send an MQTT message
+4. Created a CA, verified it with Azure, then generated a client certificate and using it to send an MQTT message
 
-Now that we've got our events (messages) successfully flowing in to the Hub we need to decide what to do with them. Topics for future investigation include storage, monitoring, and analytical worktools. Azure has a shedload of services to offer, and of course it's pretty trivial to just spin up the infrastructure to run any other open-source project that might be useful. Stay tuned!
+Now that we've got our events (messages) successfully flowing in to the Hub we need to decide what to do with them. Topics for future investigation include storage, monitoring, and analytical worktools. Azure has a shedload of native services to offer (DataBlocks, EventHub, databases, etc.), and of course it's pretty trivial to just spin up the infrastructure to run any other [open-source data engineering projects][oss-engineering] that might be useful. Stay tuned!
 
 
 [azure-iot-hub]: https://azure.microsoft.com/en-us/services/iot-hub/
@@ -226,3 +230,4 @@ Now that we've got our events (messages) successfully flowing in to the Hub we n
 [x509-wikipedia]: https://en.wikipedia.org/wiki/X.509
 [azure-x509-options]: https://azure.microsoft.com/en-gb/blog/installing-certificates-into-iot-devices/
 [azure-proof-of-posession]: https://docs.microsoft.com/en-us/azure/iot-dps/how-to-verify-certificates
+[oss-engineering]: https://github.com/gunnarmorling/awesome-opensource-data-engineering
