@@ -9,7 +9,8 @@ I've started playing with the [IoT Hub in Azure][azure-iot-hub] and it took some
 
 {% include toc %}
 
-# Getting started
+## Getting started
+
 First [sign up for a free Azure account][azure-free-account]. You'll get some free credits to play around with the services before committing to paying anything.
 
 Then [install the Azure CLI][azure-cli]. Once that's installed, add the IoT extension:
@@ -18,7 +19,8 @@ az extension add --name azure-cli-iot-ext
 {% endhighlight %}
 And now you're ready to go!
 
-# Create an IoT Hub
+## Create an IoT Hub
+
 An instance of IoT Hub can be created using the Azure GUI (Create a resource -> search for IoT Hub) or using the CLI.
 
 First create a Resource Group named "internet-of-gaz" to keep all the resources organised.
@@ -34,7 +36,8 @@ az iot hub create --name $IOT_HUB_NAME --resource-group $IOT_HUB_NAME --location
 
 The output from the previous command should indicate that a new instance has been created under the "free tier". The [IoT Hub Pricing page][iot-hub-pricing] has more details about the differences between the tiers.
 
-# Add a device
+## Add a device
+
 Now that we've got our hub we need to start registering our IoT devices. This registration process can be automated which is useful if you're dealing with a large number of devices, but let's start by registering a single device named "gaz-device-1".
 {% highlight bash %}
 IOT_DEVICE_NAME=gaz-device-1
@@ -43,13 +46,15 @@ az iot hub device-identity create --device-id $IOT_DEVICE_NAME --hub-name $IOT_H
 
 And now we're ready for our device to start communicating with the hub!
 
-# Monitoring Hub Messages
+## Monitoring Hub Messages
+
 First we need a way to monitor messages received by the Hub. The [documentation has examples][iot-hub-default-endpoint] for how to use the SDKs to read from the default endpoints, but there's also a built-in monitor using the CLI:
 {% highlight bash %}
 az iot hub monitor-events -n $IOT_HUB_NAME
 {% endhighlight %}
 
-# Device to Cloud Messaging
+## Device to Cloud Messaging
+
 I have the [Mosquitto broker software][mosquitto-homepage] installed, so I'll use [mosquitto_pub][mosquitto-pub-man] for sending messages to the Hub. To find out what to specify for the hostname, username, etc, we once again need to [Read The Fabulous Manual][iot-hub-mqtt-usage] to see what IoT Hub expects. The hostname, user, and topic are defined as follows:
 {% highlight bash %}
 MQTT_HOSTNAME=$(az iot hub show -n $IOT_HUB_NAME | jq -r .properties.hostName)
@@ -61,7 +66,8 @@ Since we're using Mosquitto we're also going to need to obtain the PEM-encoded A
 
 But what about the password for authentication? We'll look at two options: short-lived tokens and X.509 certificates.
 
-## Shared Access Signature (SAS) Token Authentication
+### Shared Access Signature (SAS) Token Authentication
+
 By default the device is registered using the "symmetric key" authentication type. This means that the messages from our device will need to include a "Shared Access Signature" (SAS) token for authentication. The [IoT Hub Security documentation][iot-hub-security] has examples of how to generate these tokens programatically using the SDKs. Alternatively we can use the CLI to generate a token that will be valid for 10 minutes (600 seconds). I haven't touched on "Shared access policies" here, but by default the token will use the "iothubowner" policy name, which isn't recommended for use in a production setting.
 
 {% highlight bash %}
@@ -94,10 +100,10 @@ Starting event monitor, use ctrl-c to stop...
 
 Hooray!
 
-## X.509 Certificate Authentication
+### X.509 Certificate Authentication
 SAS tokens are fine if our device is able to generate its own tokens in some way, but that may not be possible. The device may not have the capacity or capability to perform the generation, so an alternative means of securing communications is by using [X.509 certificates][x509-wikipedia]. The basic idea here is that the device carries a certificate which is signed by a known and trusted Certificate Authority. These certificates may be generated installed on the devices at the time the device is manufactured, or distributed in a secure way. There's [an interesting Azure blog post][azure-x509-options] that covers some of the options here.
 
-### Create a Certificate Authority
+#### Create a Certificate Authority
 For our testing we're going to create our own Certificate Authority (CA) (referred to as "self-managed PKI" in that blog post) using good old openssl. This is as easy as the following steps:
 
 1. Create a CA private key.
@@ -120,8 +126,9 @@ az iot hub certificate create --hub-name $IOT_HUB_NAME --name GazCert --path ./c
 
 {% endhighlight %}
 
-### Proof of Posession
-But if you list our ceritificates or view them in the Portal in our browser, you might notice that the certificate is listed as "not verified"
+#### Proof of Posession
+
+If you list our ceritificates or view them in the Portal in our browser, you might notice that the certificate is listed as "not verified"
 {% highlight bash %}
 az iot hub certificate list --hub-name $IOT_HUB_NAME | jq '.value [].properties.isVerified'
 false
@@ -153,7 +160,8 @@ az iot hub certificate verify --etag AAAAAAt4El8= --name GazCert --path ./verifi
 
 Repeat the command from earlier to ensure that the CA "isVerified" property is now true.
 
-## Generate a Device Certificate
+#### Generate a Device Certificate
+
 Now that we have a verified CA any certificates given to our devices will be accepted. Here we'll set up a new device and configure it to use "X509 CA signed" authentication.
 
 First register a second device in IoT Hub and configure it to use X509 CA authentication:
@@ -174,7 +182,7 @@ openssl req -new -out device2.csr -key device2.key
 openssl x509 -req -in device2.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out device2.crt -days 360
 {% endhighlight %}
 
-Now we're ready to send the message. Note that we no longer need to include 
+Now we're ready to send the message. Note that we now pass our certificate and key instead of the SAS token as a password.
 
 {% highlight bash %}
 # Redefine user and topic to pick up the new device name
@@ -183,8 +191,8 @@ MQTT_TOPIC="devices/$IOT_DEVICE_NAME/messages/events/"
 
 mosquitto_pub \
 --cafile portal-azure-com.pem \
---cert client.crt \
---key client.key \
+--cert device2.crt \
+--key device2.key \
 -h "$MQTT_HOSTNAME" \
 -u "$MQTT_USER" \
 -i "$IOT_DEVICE_NAME" \
@@ -195,26 +203,28 @@ mosquitto_pub \
 
 Then, as when sending the message using SAS authentication, the message should appear in the monitor window!
 
-# Cleanup
+## Cleanup
+
 When you're done playing with your IoT Hub then remember to remove the resources. If you're using the 'free tier' then you probably don't have to worry about an unexpected bill, but if you chose a Basic or Standard then delete the resource group and all the associated resources using the following command:
 {% highlight bash %}
-az group delete -n $IOT_HUB_NAME                                                                                  
+az group delete -n $IOT_HUB_NAME
 {% endhighlight %}
 
 Check the list of resource groups to ensure that internet-of-gaz has been removed
 {% highlight bash %}
-az group list | jq '.[].name' 
+az group list | jq '.[].name'
 {% endhighlight %}
 
-# Conclusion / What's Next?
+## Conclusion / What's Next
+
 Phew. That felt like quite a lot of work. So, to recap what we've achieved here:
+
 1. Created a new IoT Hub in Azure
 2. Registered a couple of devices, one for SAS and one for X.509 CA authentication
 3. Generated a SAS token and used it to send an MQTT message
 4. Created a CA, verified it with Azure, then generated a client certificate and using it to send an MQTT message
 
 Now that we've got our events (messages) successfully flowing in to the Hub we need to decide what to do with them. Topics for future investigation include storage, monitoring, and analytical worktools. Azure has a shedload of native services to offer (DataBlocks, EventHub, databases, etc.), and of course it's pretty trivial to just spin up the infrastructure to run any other [open-source data engineering projects][oss-engineering] that might be useful. Stay tuned!
-
 
 [azure-iot-hub]: https://azure.microsoft.com/en-us/services/iot-hub/
 [mqtt-homepage]: http://mqtt.org/
