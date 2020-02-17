@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Gareth Western's Homepage
+title: G-Web
 email: gareth@garethwestern.com
 description: >- # this means to ignore newlines until "baseurl:"
-        A place for @gareth to write about whatever takes his fancy.
+        @gareth's blog
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://garethwestern.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://garethwestern.com"
 twitter_username: gareth
 github_username:  gdubya
 logo: images/gareth.jpg
