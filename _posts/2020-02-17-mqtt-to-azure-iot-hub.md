@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Secure MQTT communication with Azure IoT Hub"
-date:   2020-02-17 21:32:00 +0100
+date:   2020-02-17 20:32:00 +0100
 categories: azure iot mqtt
 ---
 
@@ -201,7 +201,7 @@ When you're done playing with your IoT Hub then remember to remove the resources
 az group delete -n $IOT_HUB_NAME                                                                                  
 {% endhighlight %}
 
-Check the list of resource groups (using jq to cleanup the JSON output)
+Check the list of resource groups to ensure that internet-of-gaz has been removed
 {% highlight bash %}
 az group list | jq '.[].name' 
 {% endhighlight %}
