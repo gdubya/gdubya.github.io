@@ -84,7 +84,9 @@ footer_links:
   - title: GitHub
     url: https://github.com/gdubya
     icon: fab fa-github-square    
-
+  - title: LinkedIn
+    url: https://linkedin.com/in/gwestern
+    icon: fab fa-linkedin
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
