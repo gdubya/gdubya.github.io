@@ -22,9 +22,15 @@ Here's the script for fetching the list of CIDR ranges (taking only the valid IP
     # Remove the trailing comma
     iplist=${iplist: : -1}
 
-    # Update Cosmos
+    # Update Cosmos - may take a few minutes to execute
     az cosmosdb update --resource-group $rgname --name $dbname --ip-range-filter $iplist
 {% endhighlight %}
+
+Once the az command is finished then you should see a long list of CIDR ranges under the firewall settings.
+
+![CosmosDB Firewall Settings]({{ site.url }}/images/cosmos-firewall-whitelist.png)
+
+It's a long list of ranges, but it's better than exposing the database to the _entire_ Internet.
 
 [cosmos-free-tier]: https://docs.microsoft.com/en-us/azure/cosmos-db/free-tier
 [api-github-meta]: https://api.github.com/meta
