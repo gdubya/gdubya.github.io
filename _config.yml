@@ -45,7 +45,7 @@ google_fonts:
     weights: "400,400i,700,700i"
 
 # Search
-search_full_content: false # can have performance implications for large sites
+search_full_content: true
 
 # Front Matter Defaults
 defaults:
