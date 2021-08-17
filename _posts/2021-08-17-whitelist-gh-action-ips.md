@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Whitelist a Github Action"
+title:  "Whitelist a Github Action Runner IP in Azure CosmosDB"
 date:   2021-08-17 19:41:00 +0200
 categories: azure cosmos github
 ---
