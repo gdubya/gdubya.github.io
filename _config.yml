@@ -34,6 +34,7 @@ read_time: true
 google_analytics: UA-113692-1
 twitter:
   username: gareth
+mastodon: ma0gw@mastodon.social  
 
 # Build settings
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
@@ -85,7 +86,7 @@ footer_links:
     icon: fab fa-github-square
   - title: LinkedIn
     url: https://linkedin.com/in/gwestern
-    icon: fab fa-linkedin
+    icon: fab fa-linkedin    
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -105,3 +106,6 @@ footer_links:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Include these files/folders that are excluded by default
+include: [ "/.well-known" ]
