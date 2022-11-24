@@ -1,0 +1,23 @@
+{
+   "subject":"acct:ma0gw@mastodon.social",
+   "aliases":[
+      "https://mastodon.social/@ma0gw",
+      "https://mastodon.social/users/ma0gw"
+   ],
+   "links":[
+      {
+         "rel":"http://webfinger.net/rel/profile-page",
+         "type":"text/html",
+         "href":"https://mastodon.social/@ma0gw"
+      },
+      {
+         "rel":"self",
+         "type":"application/activity+json",
+         "href":"https://mastodon.social/users/ma0gw"
+      },
+      {
+         "rel":"http://ostatus.org/schema/1.0/subscribe",
+         "template":"https://mastodon.social/authorize_interaction?uri={uri}"
+      }
+   ]
+}
