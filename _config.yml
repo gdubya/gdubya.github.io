@@ -24,7 +24,6 @@ description: >- # this means to ignore newlines until "baseurl:"
         @gareth's blog
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://garethwestern.com"
-twitter_username: gareth
 github_username:  gdubya
 logo: images/gareth.jpg
 feed:
@@ -32,8 +31,6 @@ feed:
 locale: en-GB
 read_time: true
 google_analytics: UA-113692-1
-twitter:
-  username: gareth
 mastodon: ma0gw@mastodon.social  
 
 # Build settings
@@ -69,24 +66,21 @@ collections:
   posts:
     output: true
     permalink: /posts/:year/:month/:day/:title/
-  notes:
-    output: true
-    permalink: /:collection/:path/
 
 # Footer Links
 footer_links:
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
-  - title: Twitter
-    url: https://twitter.com/gareth
-    icon: fab fa-twitter-square
   - title: GitHub
     url: https://github.com/gdubya
     icon: fab fa-github-square
   - title: LinkedIn
     url: https://linkedin.com/in/gwestern
-    icon: fab fa-linkedin    
+    icon: fab fa-linkedin
+  - title: BlueSky
+    url: https://bsky.app/profile/garethwestern.com
+    icon: fa-brands fa-bluesky
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
