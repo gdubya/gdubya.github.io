@@ -50,5 +50,5 @@ Big thanks again to Douglas Garcia Torres and Onno van der Horst for the inspira
 [worldcup-pool]: https://github.com/onno101/worldcup-pool
 [serverless-ga]: https://www.databricks.com/blog/serverless-workspaces-azure-databricks-now-generally-available
 [lakebase-cdf]: https://learn.microsoft.com/en-gb/azure/databricks/oltp/projects/lakebase-cdf
-[genie]: https://learn.microsoft.com/en-gb/azure/databricks/genie-ui/genie-chat
+[genie]: https://learn.microsoft.com/en-gb/azure/databricks/genie-one/chat
 [linkedin-original]: https://www.linkedin.com/feed/update/urn:li:activity:7470171863327850496/
