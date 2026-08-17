@@ -30,8 +30,7 @@ feed:
   path: atom.xml
 locale: en-GB
 read_time: true
-google_analytics: UA-113692-1
-mastodon: ma0gw@mastodon.social  
+mastodon: ma0gw@mastodon.social
 
 # Build settings
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
@@ -53,14 +52,17 @@ defaults:
     values:
       layout: post
       share: true
-      comments: true
 
+# Only plugins on the GitHub Pages allow-list will actually run on the live
+# site: https://pages.github.com/versions/
+# ("jekyll-paginated" used to be listed here -- no such gem exists, and the
+# home layout uses `limit` rather than pagination, so it has been dropped.)
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-paginated
   - jekyll-seo-tag
   - jekyll-gist
+  - jekyll-remote-theme
 
 collections:
   posts:
@@ -100,6 +102,12 @@ footer_links:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Careful: GitHub Pages enables jekyll-optional-front-matter, so any stray .md
+# file in the repo -- even without front matter, even in a subdirectory --
+# becomes a published page. Add such files to an `exclude:` list here (entries
+# are added to Jekyll's internal default list, not a replacement for it), or
+# better, keep them out of the repo altogether.
 
 # Include these files/folders that are excluded by default
 include: [ "/.well-known" ]
