@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  # Weekly run so a newly-published advisory shows up even with no commits.
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+# Least privilege: nothing here needs write access to the repo.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          # Match the Ruby version GitHub Pages builds with.
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        env:
+          JEKYLL_ENV: production
+          # jekyll-github-metadata and jekyll-remote-theme both hit the GitHub
+          # API; without a token they fail or get rate-limited on CI.
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec jekyll build --trace
+
+      # Informational only -- a broken link shouldn't block anything, and the
+      # remote theme's own markup can trip this up.
+      - name: Check for broken internal links
+        continue-on-error: true
+        run: |
+          gem install html-proofer --no-document
+          htmlproofer ./_site \
+            --disable-external \
+            --allow-hash-href \
+            --ignore-empty-alt \
+            --no-enforce-https
+
+  audit:
+    name: Audit dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: bundler-audit
+        run: |
+          gem install bundler-audit --no-document
+          bundle audit check --update

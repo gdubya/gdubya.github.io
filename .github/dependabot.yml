@@ -1,0 +1,29 @@
+version: 2
+updates:
+  # Ruby gems (Gemfile / Gemfile.lock). The github-pages gem pins most of the
+  # dependency tree, so most PRs here will be transitive bumps that only affect
+  # local `bundle exec jekyll serve` previews -- GitHub Pages builds the live
+  # site with its own gem set.
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    groups:
+      # One PR for the whole transitive tree instead of ~20 separate ones.
+      jekyll-and-deps:
+        patterns:
+          - "*"
+
+  # Keep the action versions in .github/workflows pinned to something current.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "github-actions"
