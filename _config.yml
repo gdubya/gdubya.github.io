@@ -30,6 +30,11 @@ feed:
   path: atom.xml
 locale: en-GB
 read_time: true
+# Without this, Jekyll uses the build machine's timezone -- UTC on GitHub Pages,
+# but local time when previewing. A post written after 22:00 local then lands on
+# the previous day in production and gets a different permalink to the one you
+# saw locally. Pinning it keeps local, CI and production builds identical.
+timezone: Europe/Oslo
 # No `mastodon:` key -- the account is no longer used, so the theme's rel="me"
 # profile link is gone. .well-known/webfinger is deliberately kept, so the
 # domain still resolves as a fediverse alias if the account is ever revived.
