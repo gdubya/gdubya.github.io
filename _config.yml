@@ -21,7 +21,7 @@
 title: G-Web
 email: gareth@garethwestern.com
 description: >- # this means to ignore newlines until "baseurl:"
-        @gareth's blog
+        Gareth Western's blog — notes on data platforms, cloud and CI/CD.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://garethwestern.com"
 github_username:  gdubya
@@ -30,7 +30,9 @@ feed:
   path: atom.xml
 locale: en-GB
 read_time: true
-mastodon: ma0gw@mastodon.social
+# No `mastodon:` key -- the account is no longer used, so the theme's rel="me"
+# profile link is gone. .well-known/webfinger is deliberately kept, so the
+# domain still resolves as a fediverse alias if the account is ever revived.
 
 # Build settings
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
