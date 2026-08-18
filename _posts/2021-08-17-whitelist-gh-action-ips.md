@@ -2,7 +2,9 @@
 layout: post
 title:  "Whitelist a Github Action Runner IP in Azure CosmosDB"
 date:   2021-08-17 19:41:00 +0200
-categories: azure cosmos github
+categories: [azure]
+tags: [cosmos, github]
+redirect_from: /posts/2021/08/17/whitelist-gh-action-ips/
 ---
 
 I'm using Github Actions to automatically archive journey data from my car. For now I'm writing the data to a local sqlite database stored in a private Git repo, but I'd like to push it to a "remote" database so that the data is more easily accessible. The plan is to use Github Actions to run a script to write the data to a [Azure CosmosDB "Free Tier"][cosmos-free-tier] instance.

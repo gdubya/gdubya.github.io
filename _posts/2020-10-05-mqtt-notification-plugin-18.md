@@ -2,7 +2,9 @@
 layout: post
 title:  "Jenkins MQTT Notification Plugin v1.8 Released"
 date:   2020-10-06 23:19:00 +0200
-categories: jenkins plugin mqtt
+categories: [jenkins]
+tags: [plugin, mqtt]
+redirect_from: /posts/2020/10/05/mqtt-notification-plugin-18/
 ---
 
 Over 7 years has passed since I released [the first version of the MQTT Notification Plugin for Jenkins][mqtt-notification-plugin-10]. It's not particularly big or clever, but it serves a simple purpose and it was a good excuse to play around with MQTT and Jenkins Plugin development.

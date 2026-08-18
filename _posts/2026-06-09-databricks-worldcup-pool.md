@@ -2,7 +2,9 @@
 layout: post
 title:  "Building a World Cup pool with Databricks Apps, Lakebase and Genie"
 date:   2026-06-09 19:56:00 +0200
-categories: databricks apps lakebase genie
+categories: [databricks]
+tags: [apps, lakebase, genie]
+redirect_from: /posts/2026/06/09/databricks-worldcup-pool/
 ---
 
 Recently Douglas Garcia Torres shared an open-source project created by Onno van der Horst for running a [World Cup pool as a Databricks App][worldcup-pool]. Naturally, this gave me the perfect excuse to spend some time playing around with Databricks Apps, Lakebase, Genie, and a few of the newer platform capabilities. A couple of evenings later we have an internal football pool up and running at Bouvet.

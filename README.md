@@ -1,7 +1,7 @@
 # gdubya.github.io
 
 Source for [garethwestern.com](https://garethwestern.com) — a Jekyll site built
-by GitHub Pages using the [so-simple-theme][so-simple] remote theme.
+with the [Chirpy][chirpy] theme, deployed via a GitHub Actions workflow.
 
 ## Notes to self
 
@@ -33,16 +33,28 @@ bundle-audit check --update
 Dependabot (`.github/dependabot.yml`) opens a weekly PR for gem and Action
 updates, so this is mostly only needed when you want to bump things by hand.
 
-Note that `Gemfile.lock` only affects *local* builds. The live site is built by
-GitHub Pages with its own pinned gem set — see
-<https://pages.github.com/versions/>.
+Unlike the old `so-simple-theme` setup, the live site is now built and
+deployed entirely from this repo's own `Gemfile.lock` via GitHub Actions —
+it's no longer subject to GitHub Pages' legacy allowed-gems list
+(<https://pages.github.com/versions/>). GitHub Pages is configured to deploy
+from "GitHub Actions" (Settings → Pages), not from a branch.
 
-### CI
+### CI / deploy
 
-`.github/workflows/ci.yml` runs on every push and PR, plus weekly:
+- `.github/workflows/ci.yml` runs on every PR, plus weekly: builds the site
+  (so a bad `_config.yml` or Liquid error fails fast), checks internal links
+  with html-proofer, and runs `bundle audit` against the Ruby advisory DB.
+- `.github/workflows/pages-deploy.yml` runs on every push to `master`: builds
+  the site, checks internal links, and deploys the result to GitHub Pages.
 
-- builds the site, so a bad `_config.yml` or Liquid error fails fast
-- checks internal links with html-proofer (informational only)
-- runs `bundle audit` against the Ruby advisory DB
+### Content structure
 
-[so-simple]: https://github.com/mmistakes/so-simple-theme
+- Posts live in `_posts/`, one category (`categories: [x]`) plus any number of
+  `tags: [...]` per post; permalinks are `/posts/:title/`.
+- Static pages (About, Archives, Categories, Tags) live in `_tabs/`.
+- Old date-based post URLs (from before the Chirpy migration) redirect to
+  their new `/posts/:title/` URL via `redirect_from:` front matter
+  (`jekyll-redirect-from`).
+
+[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy
+

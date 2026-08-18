@@ -2,7 +2,9 @@
 layout: post
 title:  "Azure Cognitive Services - Speech API Demo"
 date:   2020-03-04 22:32:00 +0100
-categories: azure cognitive speech
+categories: [azure]
+tags: [cognitive, speech]
+redirect_from: /posts/2020/03/04/azure-speech-demo/
 ---
 
 I've put together a little demo of the Speech API from [Azure Cognitive Services][azure-cognitive-services]. I'm surprised at how well it understood my Norwegian!

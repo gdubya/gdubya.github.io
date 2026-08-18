@@ -2,12 +2,12 @@
 layout: post
 title:  "Secure MQTT communication with Azure IoT Hub"
 date:   2020-02-17 20:32:00 +0100
-categories: azure iot mqtt
+categories: [azure]
+tags: [iot, mqtt]
+redirect_from: /posts/2020/02/17/mqtt-to-azure-iot-hub/
 ---
 
 I've started playing with the [IoT Hub in Azure][azure-iot-hub] and it took some time to assemble the pieces for testing secure [MQTT messaging][mqtt-homepage], so here's a writeup of some notes I made along the way.
-
-{% include toc %}
 
 ## Getting started
 

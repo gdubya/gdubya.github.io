@@ -2,7 +2,9 @@
 layout: post
 title:  "Analysing three years of Norwegian grocery receipts with Databricks"
 date:   2026-07-17 07:59:57 +0200
-categories: databricks spark gdpr genie
+categories: [databricks]
+tags: [spark, gdpr, genie]
+redirect_from: /posts/2026/07/17/norwegian-grocery-receipts/
 ---
 
 Now that the World Cup is over (it did not come home), here's one last side project before I unplug and vanish for a few weeks.
