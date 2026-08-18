@@ -44,7 +44,7 @@ from "GitHub Actions" (Settings → Pages), not from a branch.
 - `.github/workflows/ci.yml` runs on every PR, plus weekly: builds the site
   (so a bad `_config.yml` or Liquid error fails fast), checks internal links
   with html-proofer, and runs `bundle audit` against the Ruby advisory DB.
-- `.github/workflows/pages-deploy.yml` runs on every push to `master`: builds
+- `.github/workflows/pages-deploy.yml` runs on every push to `main`: builds
   the site, checks internal links, and deploys the result to GitHub Pages.
 
 ### Content structure

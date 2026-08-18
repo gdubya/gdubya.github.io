@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    branches: [master]
+    branches: [main]
   # Weekly run so a newly-published advisory shows up even with no commits.
   schedule:
     - cron: "0 6 * * 1"

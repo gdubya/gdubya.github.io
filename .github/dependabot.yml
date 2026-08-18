@@ -1,9 +1,8 @@
 version: 2
 updates:
-  # Ruby gems (Gemfile / Gemfile.lock). The github-pages gem pins most of the
-  # dependency tree, so most PRs here will be transitive bumps that only affect
-  # local `bundle exec jekyll serve` previews -- GitHub Pages builds the live
-  # site with its own gem set.
+  # Ruby gems (Gemfile / Gemfile.lock). The live site is built and deployed
+  # from this repo's own Gemfile.lock via GitHub Actions, so these bumps
+  # affect both local `bundle exec jekyll serve` previews and production.
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
