@@ -18,6 +18,6 @@ can find them again. Mostly Azure, Jenkins and GitHub Actions, and mostly
 whenever I remember the blog exists.
 
 You can email me at [gareth@garethwestern.com](mailto:gareth@garethwestern.com);
-my other links are in the footer.
+my other links are in the sidebar.
 
 [mqtt-plugin]: https://github.com/jenkinsci/mqtt-notification-plugin

@@ -1,0 +1,23 @@
+#  The contact options.
+#
+# github/email use site.github.username / site.social.email; everything else
+# needs an explicit `url`. Icons powered by <https://fontawesome.com/>.
+
+- type: github
+  icon: "fab fa-github"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://linkedin.com/in/gwestern"
+
+- type: bluesky
+  icon: "fa-brands fa-bluesky"
+  url: "https://bsky.app/profile/garethwestern.com"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true # open link in current tab
+
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
