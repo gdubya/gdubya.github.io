@@ -227,7 +227,7 @@ Phew. That felt like quite a lot of work. So, to recap what we've achieved here:
 Now that we've got our events (messages) successfully flowing in to the Hub we need to decide what to do with them. Topics for future investigation include storage, monitoring, and analytical worktools. Azure has a shedload of native services to offer (DataBlocks, EventHub, databases, etc.), and of course it's pretty trivial to just spin up the infrastructure to run any other [open-source data engineering projects][oss-engineering] that might be useful. Stay tuned!
 
 [azure-iot-hub]: https://azure.microsoft.com/en-us/services/iot-hub/
-[mqtt-homepage]: http://mqtt.org/
+[mqtt-homepage]: https://mqtt.org/
 [azure-free-account]: https://azure.microsoft.com/en-us/free/
 [azure-cli]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
 [iot-hub-pricing]: https://azure.microsoft.com/en-gb/pricing/details/iot-hub/
