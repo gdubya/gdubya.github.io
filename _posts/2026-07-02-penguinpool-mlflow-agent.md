@@ -2,7 +2,9 @@
 layout: post
 title:  "Rebuilding the PenguinPool commentary as an MLflow agent"
 date:   2026-07-02 01:22:21 +0200
-categories: databricks mlflow genie llm
+categories: [databricks]
+tags: [mlflow, genie, llm]
+redirect_from: /posts/2026/07/02/penguinpool-mlflow-agent/
 ---
 
 A few weeks ago I shared how I moved the Bouvet PenguinPool from Erik Stubø's legendary Excel sheets to [a fully automated commentary system on Databricks][previous-post]. The jobs run, the Slack messages land, the penguin fans are happy.

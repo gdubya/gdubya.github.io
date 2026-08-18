@@ -2,7 +2,9 @@
 layout: post
 title:  "What painting a wall has in common with the power grid"
 date:   2026-07-07 08:38:01 +0200
-categories: statnett grid energy
+categories: [statnett]
+tags: [grid, energy]
+redirect_from: /posts/2026/07/07/paint-and-grid-losses/
 ---
 
 Let's take a break from the World Cup for a minute to talk about watching paint dry.

@@ -2,7 +2,9 @@
 layout: post
 title:  "Automating World Cup commentary with Databricks Genie and Model Serving"
 date:   2026-06-13 21:45:44 +0200
-categories: databricks genie llm slack
+categories: [databricks]
+tags: [genie, llm, slack]
+redirect_from: /posts/2026/06/13/penguinpool-commentary-analyst/
 ---
 
 Erik Stubø was not only a very capable CFO at Bouvet, he was also an eager football fan who faithfully took charge of running an Excel-based prediction pool for every European and World Cup tournament. The commentary that came with it was half the fun:
