@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jenkins MQTT Notification Plugin v1.10.0 Released"
+title:  "Jenkins MQTT Notification Plugin: Release 122.vf67b_9da_d6f70"
 date:   2026-08-23 22:12:00 +0200
 categories: [jenkins]
 tags: [plugin, mqtt, cicd, antigravity]
@@ -10,7 +10,7 @@ Back in 2020, when I wrote about [releasing v1.8 of the MQTT Notification Plugin
 
 > *A short while later someone created an issue for [an actual feature request][feature-request], so hopefully it won't be too long until v1.9 is released!*
 
-Well, true to the definition of maintaining a side project at a "leisurely pace", only nearly six years have passed. But good things come to those who wait: **v1.10.0 is now officially released!**
+Well, true to the definition of maintaining a side project at a "leisurely pace", nearly six years have passed. And if you were expecting a simple `v1.9.0` or `v1.10.0`, the Jenkins ecosystem has moved on too! Under Jenkins' modern [JEP-229 Continuous Delivery][jep-229] model, releases are now automated with changelist-based version numbers—making **`122.vf67b_9da_d6f70`** our latest official release.
 
 Credit where it's due: getting this release over the finish line—tackling the open issues, modernising the test suite, and overhauling the CI/CD pipelines—was in large part thanks to pair programming with [Google Antigravity][antigravity].
 
@@ -36,20 +36,21 @@ post {
 }
 ```
 
-### ☕ Modernised Toolchain & JEP-229 Continuous Delivery
-Behind the scenes, the plugin has undergone a massive modernization:
+### ☕ Modernised Toolchain & Continuous Delivery
+Behind the scenes, the plugin has caught up with modern Jenkins standards:
+- Adopting JEP-229 continuous delivery with automated changelog generation via Release Drafter.
 - Jenkins LTS baseline bumped to `2.568.2`.
 - Java 21 build matrix and runtime support.
-- Fully automated continuous delivery pipeline via JEP-229 and Release Drafter.
 
-The release is now live on the [Jenkins Plugin Site][plugin-site] and [GitHub Releases][plugin-releases].
+The new release is live on the [Jenkins Plugin Site][plugin-site] and [GitHub Releases][plugin-releases].
 
 ---
 
-*Now, let's see how long it takes before v1.11.0...*
+*Now, let's see how long until the next automated release tag rolls in...*
 
 [mqtt-plugin-18]: {{ site.baseurl }}/posts/mqtt-notification-plugin-18/
 [feature-request]: https://github.com/gdubya/mqtt-notification-plugin/issues/16
 [plugin-site]: https://plugins.jenkins.io/mqtt-notification-plugin
 [plugin-releases]: https://github.com/jenkinsci/mqtt-notification-plugin/releases
+[jep-229]: https://github.com/jenkinsci/jep/tree/master/jep/229
 [antigravity]: https://deepmind.google/
