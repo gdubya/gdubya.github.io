@@ -3,7 +3,7 @@ layout: post
 title:  "Jenkins MQTT Notification Plugin v1.10.0 Released"
 date:   2026-08-23 22:12:00 +0200
 categories: [jenkins]
-tags: [plugin, mqtt, cicd]
+tags: [plugin, mqtt, cicd, antigravity]
 ---
 
 Back in 2020, when I wrote about [releasing v1.8 of the MQTT Notification Plugin for Jenkins][mqtt-plugin-18], I signed off with:
@@ -11,6 +11,8 @@ Back in 2020, when I wrote about [releasing v1.8 of the MQTT Notification Plugin
 > *A short while later someone created an issue for [an actual feature request][feature-request], so hopefully it won't be too long until v1.9 is released!*
 
 Well, true to the definition of maintaining a side project at a "leisurely pace", only nearly six years have passed. But good things come to those who wait: **v1.10.0 is now officially released!**
+
+Credit where it's due: getting this release over the finish line—tackling the open issues, modernising the test suite, and overhauling the CI/CD pipelines—was in large part thanks to pair programming with [Google Antigravity][antigravity].
 
 ## What's New
 
@@ -50,3 +52,4 @@ The release is now live on the [Jenkins Plugin Site][plugin-site] and [GitHub Re
 [feature-request]: https://github.com/gdubya/mqtt-notification-plugin/issues/16
 [plugin-site]: https://plugins.jenkins.io/mqtt-notification-plugin
 [plugin-releases]: https://github.com/jenkinsci/mqtt-notification-plugin/releases
+[antigravity]: https://deepmind.google/
