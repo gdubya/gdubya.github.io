@@ -6,7 +6,7 @@ gem "jekyll-theme-chirpy", "~> 7.6"
 
 # jekyll-redirect-from lets old post URLs (date-based permalinks) keep
 # resolving now that Chirpy's default permalink is /posts/:title/.
-gem "jekyll-redirect-from", "~> 0.16"
+gem "jekyll-redirect-from", "~> 0.17"
 
 gem "html-proofer", "~> 5.0", group: :test
 
