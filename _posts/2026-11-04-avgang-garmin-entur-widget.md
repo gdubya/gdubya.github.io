@@ -1,17 +1,19 @@
 ---
 layout: post
 title: "From Zero to the Garmin Store in One Evening: Vibe-Coding 'Avgang'"
+date: 2026-11-04 22:00:00 +0100
 categories: [side-projects, wearables]
 tags: [garmin, monkey-c, antigravity, entur, norway]
+redirect_from: /posts/2026/11/04/avgang-garmin-entur-widget/
 ---
 
 ![Avgang Garmin widget showing live Entur bus departures]({{ site.url }}/images/avgang-hero-image.png)
 
-Standing in the hallway with your coat and shoes on, wondering if you need to sprint for the bus or if you have three minutes to spare, is a familiar routine in Norway. 
+Many a weekday morning I find myself standing in the hallway with my coat and shoes on, wondering if I need to sprint for the bus or if I have three minutes to spare. 
 
-You can pull out your phone, unlock it, and open Entur. But when you are halfway out the door, that is just enough friction to be annoying.
+I can get out my phone, unlock it, find the Ruter app, and the departure times, but when you are halfway out the door, that is just enough friction to be annoying.
 
-Sitting on my wrist is a Garmin Fenix 6S. It tracks my runs and sleep, so why couldn't it show me the next bus departure from the stop down the road?
+Sitting on my wrist is a Garmin smart watch. It tracks my runs and sleep, so why couldn't it show me the next bus departure from the stop down the road?
 
 ## Monkey C, monkeydo
 
