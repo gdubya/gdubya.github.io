@@ -16,7 +16,7 @@ Well, have I got the app for you! Introducing **Lakehouse Pulse**[^naming], this
 
 Lakehouse Pulse is designed to give you an instant signal without burning your watch battery or waking idle Databricks compute:
 
-- **Adaptive Garmin Glance View:** Sits right in your watch's widget carousel. When everything is green, it shows a clean `All Lakeflow pipelines OK` summary (plus daily spend when billing is enabled). The moment a job fails, it flips to red and surfaces the failing job's name and how long ago it broke.
+- **Adaptive Garmin Glance View:** Sits right in your watch's widget carousel. When everything is green, it shows a clean `All Pipelines Healthy` summary (plus daily spend when billing is enabled). The moment a job fails, it flips to red and surfaces the failing job's name and how long ago it broke.
 - **Pulse Check Page & On-Demand Refresh:** Open the widget for the full OK vs. Failed breakdown and latest failure details. Hit `START` at any time to force a live refresh.
 - **Background Polling & Haptic Alerts:** Checks in automatically on a configurable schedule (every 5–120 minutes, defaulting to 15) and vibrates your wrist if a new job failure appears since the last check.
 - **Optional FinOps DBU Burn & Pinned KPIs:** On workspaces with access to `system.billing.usage`, a second page tracks today's estimated USD spend against your daily budget, your 7-day trend delta, and your top-consuming SKU, with a third page ready for up to three pinned SQL KPIs. On workspaces without billing access (such as Databricks Free Edition), those pages automatically hide themselves so you only see what applies.
