@@ -10,7 +10,7 @@ Have you ever been out for a run, a jog, or a dive and suddenly wondered about t
 
 Well, have I got the app for you! Introducing **Lakehouse Pulse**[^naming], this weekend's vibe-coding side project: a lightweight Garmin Connect IQ widget that puts your Databricks Lakeflow Jobs (and optional FinOps spend) right on your wrist.
 
-![Lakehouse Pulse logo featuring a green pulse waveform inside a red circle above the subtitle Databricks On-Call & FinOps (Beta)]({{ site.url }}/images/lakehouse-pulse-logo.png){: width="300" height="300" }
+![Lakehouse Pulse logo featuring a green pulse waveform inside a red circle above the subtitle Your Databricks Cardio Monitor]({{ site.url }}/images/lakehouse-pulse-logo.png){: width="300" height="300" }
 
 ## What It Does
 
